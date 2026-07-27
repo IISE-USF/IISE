@@ -42,7 +42,9 @@ export default function Events() {
             <section className="mb-12">
               <h2 className="text-xl font-semibold text-gray-800 mb-5">Upcoming</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {upcoming.map((ev) => <EventCard key={ev.id} event={ev} />)}
+                {upcoming.map((ev) => (
+                  <EventCard key={ev.id} event={ev} />
+                ))}
               </div>
             </section>
           )}
@@ -50,7 +52,9 @@ export default function Events() {
             <section>
               <h2 className="text-xl font-semibold text-gray-800 mb-5">Past Events</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 opacity-70">
-                {past.map((ev) => <EventCard key={ev.id} event={ev} />)}
+                {past.map((ev) => (
+                  <EventCard key={ev.id} event={ev} />
+                ))}
               </div>
             </section>
           )}
@@ -90,12 +94,7 @@ function EventCard({ event }) {
           <p className="mt-3 text-sm text-gray-600 line-clamp-3">{event.description}</p>
         )}
         {event.rsvp_link && (
-          
-            href={event.rsvp_link}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[#1B3A6B] text-white text-sm font-medium rounded-lg hover:bg-[#1B3A6B]/90 transition-smooth"
-          >
+          <a href={event.rsvp_link} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 bg-[#1B3A6B] text-white text-sm font-medium rounded-lg hover:bg-[#1B3A6B]/90 transition-smooth">
             RSVP <ExternalLink className="w-3.5 h-3.5" />
           </a>
         )}
