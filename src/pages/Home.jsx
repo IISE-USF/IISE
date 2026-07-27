@@ -116,4 +116,36 @@ export default function Home() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold
+            <h2 className="text-2xl font-bold text-gray-900">Latest Announcements</h2>
+            <Link to="/announcements" className="flex items-center gap-1 text-sm text-[#1B3A6B] font-medium hover:gap-2 transition-all">
+              See all <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+          {loading ? (
+            <div className="space-y-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="h-20 rounded-2xl bg-gray-200 animate-pulse" />
+              ))}
+            </div>
+          ) : announcements.length === 0 ? (
+            <p className="text-gray-500 text-center py-12">No announcements yet.</p>
+          ) : (
+            <div className="space-y-4">
+              {announcements.map((a) => (
+                <div key={a.id} className="flex items-start gap-4 p-5 rounded-2xl border border-gray-200 hover:shadow-sm transition-smooth bg-white">
+                  <span className={`shrink-0 mt-0.5 px-2 py-0.5 rounded-full text-xs font-medium ${CATEGORY_COLORS[a.category] || CATEGORY_COLORS.General}`}>
+                    {a.category || "General"}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-gray-900">{a.title}</h3>
+                    <p className="text-sm text-gray-600 mt-0.5 line-clamp-2">{a.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+}
