@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Calendar, Clock, MapPin, ExternalLink } from "lucide-react";
 import { Events as EventsDB } from "../firebase/db";
+import { formatDate } from "../utils/formatDate";
 
 export default function Events() {
   const [events, setEvents] = useState([]);
@@ -18,7 +19,6 @@ export default function Events() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
-      {/* Header */}
       <div className="mb-10">
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Events</h1>
         <p className="text-gray-500">Workshops, networking events, and chapter activities.</p>
@@ -71,7 +71,7 @@ function EventCard({ event }) {
         <div className="space-y-1.5 text-sm text-gray-500">
           <div className="flex items-center gap-2">
             <Calendar className="w-4 h-4 shrink-0 text-[#1B3A6B]" />
-            <span>{event.date}</span>
+            <span>{formatDate(event.date)}</span>
           </div>
           {event.time && (
             <div className="flex items-center gap-2">
@@ -90,7 +90,7 @@ function EventCard({ event }) {
           <p className="mt-3 text-sm text-gray-600 line-clamp-3">{event.description}</p>
         )}
         {event.rsvp_link && (
-          <a
+          
             href={event.rsvp_link}
             target="_blank"
             rel="noreferrer"
