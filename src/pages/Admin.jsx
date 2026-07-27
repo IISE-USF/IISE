@@ -395,7 +395,6 @@ function GalleryPanel() {
           {items.map(item => (
             <div key={item.id} className="relative group rounded-xl overflow-hidden border border-gray-200 bg-white">
               <img src={item.image_url} alt={item.caption || ""} className="w-full aspect-square object-cover" />
-              {/* Hover overlay with edit + delete */}
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-smooth flex items-center justify-center gap-2">
                 <button onClick={() => startEdit(item)}
                   className="p-2 bg-white text-[#1B3A6B] rounded-lg hover:bg-[#1B3A6B] hover:text-white transition-smooth">
@@ -415,7 +414,7 @@ function GalleryPanel() {
   );
 }
 
-/* ── Team Panel (with reorder + photo editing) ──────────────── */
+/* ── Team Panel ─────────────────────────────────────────────── */
 
 const EMPTY_MEMBER = { name: "", role: "", bio: "", email: "", linkedin: "", photo_url: "", order: 0 };
 
@@ -453,18 +452,15 @@ function TeamPanel() {
     await TeamMembers.delete(id); load();
   };
 
-  // Move up / move down buttons
   const move = async (index, direction) => {
     const newItems = [...items];
     const swapIndex = index + direction;
     if (swapIndex < 0 || swapIndex >= newItems.length) return;
     [newItems[index], newItems[swapIndex]] = [newItems[swapIndex], newItems[index]];
     setItems(newItems);
-    // Save new order to Firestore
     await Promise.all(newItems.map((item, i) => TeamMembers.update(item.id, { order: i })));
   };
 
-  // Drag-and-drop handlers
   const onDragStart = (e, index) => { dragItem.current = index; e.dataTransfer.effectAllowed = "move"; };
   const onDragEnter = (e, index) => { dragOver.current = index; };
   const onDragEnd   = async () => {
@@ -496,7 +492,6 @@ function TeamPanel() {
         <div className="bg-white rounded-2xl border border-gray-200 p-6 space-y-4">
           <h3 className="font-semibold">{editing === "new" ? "New Member" : "Edit Member"}</h3>
 
-          {/* Photo editor at the top */}
           <div className="flex items-center gap-6 p-4 bg-gray-50 rounded-xl">
             <div className="shrink-0">
               {form.photo_url
@@ -549,17 +544,14 @@ function TeamPanel() {
               onDragOver={e => e.preventDefault()}
               className="bg-white rounded-2xl border border-gray-200 p-4 flex items-center gap-4 cursor-grab active:cursor-grabbing hover:shadow-md transition-smooth group"
             >
-              {/* Drag handle */}
               <div className="text-gray-300 group-hover:text-gray-400 transition-smooth shrink-0">
                 <GripVertical className="w-5 h-5" />
               </div>
 
-              {/* Position number */}
               <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-medium text-gray-500 shrink-0">
                 {index + 1}
               </div>
 
-              {/* Photo */}
               {item.photo_url
                 ? <img src={item.photo_url} alt={item.name} className="w-12 h-12 rounded-full object-cover shrink-0" />
                 : <div className="w-12 h-12 rounded-full bg-[#1B3A6B]/10 flex items-center justify-center text-[#1B3A6B] font-bold shrink-0">
@@ -567,15 +559,12 @@ function TeamPanel() {
                   </div>
               }
 
-              {/* Info */}
               <div className="flex-1 min-w-0">
                 <p className="font-medium text-gray-900 truncate">{item.name}</p>
                 <p className="text-sm text-gray-500 truncate">{item.role}</p>
               </div>
 
-              {/* Controls */}
               <div className="flex items-center gap-1 shrink-0">
-                {/* Up/down arrows for non-drag users */}
                 <button onClick={() => move(index, -1)} disabled={index === 0}
                   className="p-1.5 text-gray-400 hover:text-[#1B3A6B] hover:bg-[#1B3A6B]/10 rounded-lg transition-smooth disabled:opacity-20">
                   <ArrowUp className="w-3.5 h-3.5" />
@@ -650,4 +639,3 @@ function FeedbackPanel() {
     </div>
   );
 }
-
