@@ -21,30 +21,18 @@ export default function Footer() {
     <footer className="bg-[#1B3A6B] text-white mt-auto">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
           <div>
             <h3 className="text-lg font-semibold mb-3">IISE Chapter</h3>
             <p className="text-white/70 text-sm leading-relaxed">
               Institute of Industrial and Systems Engineers — dedicated to excellence
               in industrial engineering and continuous improvement.
             </p>
-            {/* Social links */}
             <div className="flex gap-3 mt-4">
-              
-                href="https://www.instagram.com/iiseusf?igsh=Nm04amY5aTNjMXdr"
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 rounded-lg bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition-all"
-                aria-label="Instagram"
-              >
+              <a href="https://www.instagram.com/iiseusf?igsh=Nm04amY5aTNjMXdr" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition-all" aria-label="Instagram">
                 <InstagramIcon />
               </a>
-              
-                href="https://www.linkedin.com/company/iiseatusf"
-                target="_blank"
-                rel="noreferrer"
-                className="p-2 rounded-lg bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition-all"
-                aria-label="LinkedIn"
-              >
+              <a href="https://www.linkedin.com/company/iiseatusf" target="_blank" rel="noreferrer" className="p-2 rounded-lg bg-white/10 text-white/80 hover:bg-white/20 hover:text-white transition-all" aria-label="LinkedIn">
                 <LinkedInIcon />
               </a>
             </div>
@@ -74,29 +62,17 @@ export default function Footer() {
             <p className="text-white/70 text-sm">
               Stay connected with our chapter through events and announcements.
             </p>
-            <div className="flex gap-3 mt-4">
-              
-                href="https://www.instagram.com/iiseusf?igsh=Nm04amY5aTNjMXdr"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-smooth"
-              >
+            <div className="flex flex-col gap-2 mt-4">
+              <a href="https://www.instagram.com/iiseusf?igsh=Nm04amY5aTNjMXdr" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-smooth">
                 <InstagramIcon /> @iiseusf
               </a>
-            </div>
-            <div className="flex gap-3 mt-2">
-              
-                href="https://www.linkedin.com/company/iiseatusf"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-smooth"
-              >
+              <a href="https://www.linkedin.com/company/iiseatusf" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-smooth">
                 <LinkedInIcon /> IISE at USF
               </a>
             </div>
           </div>
-        </div>
 
+        </div>
         <div className="mt-8 pt-6 border-t border-white/20 text-center text-white/50 text-sm">
           © {new Date().getFullYear()} IISE Chapter. All rights reserved.
         </div>
