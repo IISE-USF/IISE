@@ -1,4 +1,4 @@
-export function formatTime(time) {
+export function formatDate(dateStr) {
   if (!time) return "";
   const [hourStr, minuteStr] = time.split(":");
   let hour = parseInt(hourStr, 10);
