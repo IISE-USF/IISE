@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Calendar, Clock, MapPin, ExternalLink } from "lucide-react";
 import { Events as EventsDB } from "../firebase/db";
-import { formatDate } from "../utils/formatDate";
+import { formatDate, formatTime } from "../utils/formatDate";
 
 export default function Events() {
   const [events, setEvents] = useState([]);
