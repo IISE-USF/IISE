@@ -101,7 +101,7 @@ export default function Home() {
                   <div className="flex items-center gap-2 text-xs text-[#1B3A6B] font-medium mb-3">
                     <Calendar className="w-3.5 h-3.5" />
                     {formatDate(ev.date)}
-                    {ev.time && <span className="text-gray-400">· {ev.time}</span>}
+                    {ev.time && <span className="text-gray-400">· {formatTime(ev.time)}</span>}
                   </div>
                   <h3 className="font-semibold text-gray-900 mb-1">{ev.title}</h3>
                   {ev.location && <p className="text-sm text-gray-500">{ev.location}</p>}
