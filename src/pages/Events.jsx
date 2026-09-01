@@ -23,7 +23,6 @@ export default function Events() {
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Events</h1>
         <p className="text-gray-500">Workshops, networking events, and chapter activities.</p>
       </div>
-
       {loading ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {[1, 2, 3, 4, 5, 6].map((i) => (
@@ -80,7 +79,7 @@ function EventCard({ event }) {
           {event.time && (
             <div className="flex items-center gap-2">
               <Clock className="w-4 h-4 shrink-0 text-[#1B3A6B]" />
-              <span>{event.time}</span>
+              <span>{formatTime(event.time)}</span>
             </div>
           )}
           {event.location && (
