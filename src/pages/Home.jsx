@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Calendar, Megaphone, Users, ImageIcon, ArrowRight } from "lucide-react";
 import { Events, Announcements } from "../firebase/db";
-import { formatDate } from "../utils/formatDate";
+import { formatDate, formatTime } from "../utils/formatDate";
 
 const CATEGORY_COLORS = {
   General: "bg-gray-100 text-gray-700",
