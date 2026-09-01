@@ -1,6 +1,6 @@
 export function formatDate(dateStr) {
-  if (!time) return "";
-  const [hourStr, minuteStr] = time.split(":");
+  if (!dateStr) return "";
+  const [hourStr, minuteStr] = dateStr.split(":");
   let hour = parseInt(hourStr, 10);
   const period = hour >= 12 ? "PM" : "AM";
   hour = hour % 12;
